@@ -71,4 +71,32 @@ public class Machine {
 			ins.execute(this);
 		}
 	}
+
+	// Sets program counter to integer passed
+	protected void setPc(int pcInt) {
+		this.pc = pcInt;
+
+	}
+
+	// Returns the program counter
+	protected int getPc() {
+		return pc;
+	}
+
+	// Gets the labels
+	protected Labels getLabels() {
+		return labels;
+	}
+
+	protected void setRegisters(Registers registers) {
+		this.registers = registers;
+	}
+
+	protected Registers getRegisters() {
+		return registers;
+	}
+
+	protected ArrayList<Instruction> getProg() {
+		return prog;
+	}
 }
