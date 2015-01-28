@@ -5,7 +5,7 @@ package sml;
  */
 public class OutInstruction extends Instruction {
 
-    private int register;
+    private int op1;
 
     public OutInstruction(String label, String opcode) {
         super(label, opcode);
@@ -13,17 +13,17 @@ public class OutInstruction extends Instruction {
 
     public OutInstruction(String label, int register) {
         this(label, "out");
-        this.register = register;
+        this.op1 = register;
 
     }
 
     @Override
     public void execute(Machine m) {
-        System.out.println("Output: " + m.getRegisters().getRegister(register));
+        System.out.println("Output: " + m.getRegisters().getRegister(op1));
     }
 
     @Override
     public String toString() {
-        return super.toString() + " register " + register;
+        return super.toString() + " register " + op1;
     }
 }

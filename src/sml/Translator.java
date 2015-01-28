@@ -77,6 +77,7 @@ public class Translator {
 		int s2;
 		int r;
 		int x;
+		String jumpToLabel;
 
 		if (line.equals(""))
 			return null;
@@ -90,8 +91,8 @@ public class Translator {
 			return new AddInstruction(label, r, s1, s2);
 		case "lin":
 			r = scanInt();
-			s1 = scanInt();
-			return new LinInstruction(label, r, s1);
+			x = scanInt();
+			return new LinInstruction(label, r, x);
 		case "sub":
 			r = scanInt();
 			s1 = scanInt();
@@ -110,6 +111,11 @@ public class Translator {
 		case "out":
 			r = scanInt();
 			return new OutInstruction(label, r);
+		case "bnz":
+			s1 = scanInt();
+			jumpToLabel = scan();
+			return new BnzInstruction(label, s1, jumpToLabel);
+
 		}
 
 		// You will have to write code here for the other instructions.
