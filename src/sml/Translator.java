@@ -83,7 +83,23 @@ public class Translator {
 			return null;
 
 		String ins = scan();
-		switch (ins) {
+		// Capitalises first letter of instruction to adhere to Java Class Naming conventions
+		ins = Character.toUpperCase(ins.charAt(0)) + ins.substring(1);
+
+		String packageName = this.getClass().getPackage().getName();
+		String className = ins + "Instruction";
+		try {
+			Class c = Class.forName(packageName + "." + className);
+
+			// Checks that class extends Instruction
+			if (c.getSuperclass().equals(Instruction.class)) {
+				c.newInstance();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	/*	switch (ins) {
 		case "add":
 			r = scanInt();
 			s1 = scanInt();
@@ -116,7 +132,7 @@ public class Translator {
 			jumpToLabel = scan();
 			return new BnzInstruction(label, s1, jumpToLabel);
 
-		}
+		}*/
 
 		// You will have to write code here for the other instructions.
 

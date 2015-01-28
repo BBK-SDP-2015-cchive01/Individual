@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9304e917-ce1e-4e30-84ff-1ec8f25e1cf2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Individual/sml/LinInstruction.class" afterPath="$PROJECT_DIR$/out/production/Individual/sml/LinInstruction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Individual/sml/Translator.class" afterPath="$PROJECT_DIR$/out/production/Individual/sml/Translator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lombok.jar" afterPath="$PROJECT_DIR$/lib/lombok.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/AddInstruction.java" afterPath="$PROJECT_DIR$/src/sml/AddInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/BnzInstruction.java" afterPath="$PROJECT_DIR$/src/sml/BnzInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/DivInstruction.java" afterPath="$PROJECT_DIR$/src/sml/DivInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Individual.iml" afterPath="$PROJECT_DIR$/Individual.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/Instruction.java" afterPath="$PROJECT_DIR$/src/sml/Instruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/Labels.java" afterPath="$PROJECT_DIR$/src/sml/Labels.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/LinInstruction.java" afterPath="$PROJECT_DIR$/src/sml/LinInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/Machine.java" afterPath="$PROJECT_DIR$/src/sml/Machine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/MulInstruction.java" afterPath="$PROJECT_DIR$/src/sml/MulInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/OutInstruction.java" afterPath="$PROJECT_DIR$/src/sml/OutInstruction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/Registers.java" afterPath="$PROJECT_DIR$/src/sml/Registers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/SubInstruction.java" afterPath="$PROJECT_DIR$/src/sml/SubInstruction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Individual/sml/Machine.class" afterPath="$PROJECT_DIR$/out/production/Individual/sml/Machine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sml/Translator.java" afterPath="$PROJECT_DIR$/src/sml/Translator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Individual/code.sml" afterPath="$PROJECT_DIR$/out/production/Individual/code.sml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/code.sml" afterPath="$PROJECT_DIR$/src/code.sml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lombok.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lombok.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Individual.iws" />
@@ -75,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Translator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sml/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="2355">
-              <caret line="116" column="62" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.6293706" vertical-offset="975" max-vertical-offset="2595">
+              <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -105,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Machine.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Machine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sml/Machine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63419116" vertical-offset="540" max-vertical-offset="1425">
-              <caret line="61" column="56" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+            <state vertical-scroll-proportion="-5.357143" vertical-offset="795" max-vertical-offset="1425">
+              <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -171,7 +146,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/sml/Registers.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/sml/Machine.java" />
         <option value="$PROJECT_DIR$/src/sml/SubInstruction.java" />
         <option value="$PROJECT_DIR$/src/sml/MulInstruction.java" />
         <option value="$PROJECT_DIR$/src/sml/DivInstruction.java" />
@@ -179,8 +153,9 @@
         <option value="$PROJECT_DIR$/src/sml/LinInstruction.java" />
         <option value="$PROJECT_DIR$/src/sml/AddInstruction.java" />
         <option value="$PROJECT_DIR$/src/sml/OutInstruction.java" />
-        <option value="$PROJECT_DIR$/src/sml/Translator.java" />
         <option value="$PROJECT_DIR$/src/sml/BnzInstruction.java" />
+        <option value="$PROJECT_DIR$/src/sml/Machine.java" />
+        <option value="$PROJECT_DIR$/src/sml/Translator.java" />
       </list>
     </option>
   </component>
@@ -279,20 +254,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Individual" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Individual" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,12 +576,12 @@
       <workItem from="1422228929747" duration="43000" />
       <workItem from="1422229792236" duration="135000" />
       <workItem from="1422395998256" duration="1193000" />
-      <workItem from="1422476026002" duration="2612000" />
+      <workItem from="1422476026002" duration="7171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10854000" />
+    <option name="totallyTimeSpent" value="15413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1825" height="1008" extended-state="0" />
@@ -1061,34 +1022,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sml/Instruction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sml/Translator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="2355">
-          <caret line="116" column="62" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/Labels.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sml/AddInstruction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1130,8 +1067,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sml/Machine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63419116" vertical-offset="540" max-vertical-offset="1425">
-          <caret line="61" column="56" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+        <state vertical-scroll-proportion="-5.357143" vertical-offset="795" max-vertical-offset="1425">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sml/AddInstruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sml/Instruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sml/Translator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6293706" vertical-offset="975" max-vertical-offset="2595">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
           <folding />
         </state>
       </provider>
