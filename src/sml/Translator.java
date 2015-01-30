@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -76,55 +73,52 @@ public class Translator {
 	// removed. Translate line into an instruction with label label
 	// and return the instruction
 	public Instruction getInstruction(String label) {
-		int s1; // Possible operands of the instruction
-		int s2;
-		int r;
-		int x;
-		String jumpToLabel;
 
 		if (line.equals(""))
 			return null;
 
 		String ins = scan();
-		// Capitalises first letter of instruction to adhere to Java Class Naming conventions
+		// Capitalises first letter of instruction to adhere to Java class naming conventions
 		ins = Character.toUpperCase(ins.charAt(0)) + ins.substring(1);
 
+		String nextReg;
+		List<String> registerListStr = new ArrayList<>(); // Scan all register lists as Strings
+		while (!(nextReg = scan()).equals("")) {
+			registerListStr.add(nextReg);
+		}
+
+		Object inputParams[] = new Object[registerListStr.size() + 1];
+		Class constructorParamsToGet []= new Class[registerListStr.size() + 1];
+
+		inputParams[0] = label;
+		constructorParamsToGet[0] = String.class;
+
+		// Iterate through register list and try parsing as integers, if NumberFormatException thrown assume String
+		for (int i = 0; i < registerListStr.size(); i++) {
+			try {
+				inputParams[i + 1] = Integer.parseInt(registerListStr.get(i));
+				constructorParamsToGet[i + 1] = Integer.TYPE;
+			} catch (NumberFormatException e) {
+				inputParams[i + 1] = registerListStr.get(i);
+				constructorParamsToGet[i + 1] = String.class;
+			}
+		}
+
+		// Reflect class
 		String packageName = this.getClass().getPackage().getName();
 		String className = ins + "Instruction";
 		try {
 			Class c = Class.forName(packageName + "." + className);
-
 			// Checks that class extends Instruction
 			if (c.getSuperclass().equals(Instruction.class)) {
-
-				// Find constructor with greatest number of input parameters
-				Constructor con[]  = c.getConstructors();
-				Constructor constructorToUse = con[0];
-				for (int i = 1; i < con.length; i++) {
-					if (con[i].getParameterCount() > constructorToUse.getParameterCount()) {
-						// Replace constructorToUse if more Parameters
-						constructorToUse = con[i];
-					}
-				}
-				Class constructorParams[] = constructorToUse.getParameterTypes();
-				Object inputParams[] = new Object[constructorParams.length];
-				inputParams[0] = label;
-
-				// Build up rest of inputParams array
-				for (int i = 1; i < constructorParams.length; i++)  {
-					if (constructorParams[i].equals(String.class)) {
-						inputParams[i] = scan();
-					} else if (constructorParams[i].equals(Integer.TYPE)) {
-						inputParams[i] = scanInt();
-					} else {
-						throw new IllegalArgumentException("Illegal Parameter (not String or int)");
-					}
-				}
-
-				return ((Instruction) constructorToUse.newInstance(inputParams));
+				// get the Constructor mathing the format of the input parameters
+				Constructor matchingConstructor = c.getConstructor(constructorParamsToGet);
+				return ((Instruction) matchingConstructor.newInstance(inputParams));
 
 			}
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
@@ -133,6 +127,7 @@ public class Translator {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+
 
 	/*	switch (ins) {
 		case "add":
