@@ -2,8 +2,11 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Scanner;
 
 /*
@@ -93,9 +96,41 @@ public class Translator {
 
 			// Checks that class extends Instruction
 			if (c.getSuperclass().equals(Instruction.class)) {
-				c.newInstance();
+
+				// Find constructor with greatest number of input parameters
+				Constructor con[]  = c.getConstructors();
+				Constructor constructorToUse = con[0];
+				for (int i = 1; i < con.length; i++) {
+					if (con[i].getParameterCount() > constructorToUse.getParameterCount()) {
+						// Replace constructorToUse if more Parameters
+						constructorToUse = con[i];
+					}
+				}
+				Class constructorParams[] = constructorToUse.getParameterTypes();
+				Object inputParams[] = new Object[constructorParams.length];
+				inputParams[0] = label;
+
+				// Build up rest of inputParams array
+				for (int i = 1; i < constructorParams.length; i++)  {
+					if (constructorParams[i].equals(String.class)) {
+						inputParams[i] = scan();
+					} else if (constructorParams[i].equals(Integer.TYPE)) {
+						inputParams[i] = scanInt();
+					} else {
+						throw new IllegalArgumentException("Illegal Parameter (not String or int)");
+					}
+				}
+
+				return ((Instruction) constructorToUse.newInstance(inputParams));
+
 			}
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
 
