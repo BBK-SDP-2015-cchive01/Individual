@@ -88,19 +88,19 @@ public class Translator {
 		}
 
 		Object inputParams[] = new Object[registerListStr.size() + 1];
-		Class constructorParamsToGet []= new Class[registerListStr.size() + 1];
+		Class inputParamTypes []= new Class[registerListStr.size() + 1];
 
 		inputParams[0] = label;
-		constructorParamsToGet[0] = String.class;
+		inputParamTypes[0] = String.class;
 
 		// Iterate through register list and try parsing as integers, if NumberFormatException thrown assume String
 		for (int i = 0; i < registerListStr.size(); i++) {
 			try {
 				inputParams[i + 1] = Integer.parseInt(registerListStr.get(i));
-				constructorParamsToGet[i + 1] = Integer.TYPE;
+				inputParamTypes[i + 1] = Integer.TYPE;
 			} catch (NumberFormatException e) {
 				inputParams[i + 1] = registerListStr.get(i);
-				constructorParamsToGet[i + 1] = String.class;
+				inputParamTypes[i + 1] = String.class;
 			}
 		}
 
@@ -111,14 +111,15 @@ public class Translator {
 			Class c = Class.forName(packageName + "." + className);
 			// Checks that class extends Instruction
 			if (c.getSuperclass().equals(Instruction.class)) {
-				// get the Constructor mathing the format of the input parameters
-				Constructor matchingConstructor = c.getConstructor(constructorParamsToGet);
+				// get the Constructor matching the format of the input parameters types
+				Constructor matchingConstructor = c.getConstructor(inputParamTypes);
 				return ((Instruction) matchingConstructor.newInstance(inputParams));
 
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
+			System.err.println("Error: Method with that signature does not exist");
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
@@ -127,6 +128,8 @@ public class Translator {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+
+		return null;
 
 
 	/*	switch (ins) {
@@ -166,7 +169,6 @@ public class Translator {
 
 		// You will have to write code here for the other instructions.
 
-		return null;
 	}
 
 	/*
