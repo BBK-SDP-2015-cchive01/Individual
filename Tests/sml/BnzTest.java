@@ -10,14 +10,15 @@ import java.io.PrintWriter;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by chrischivers on 31/01/15.
+ * Created by chrischivers on 01/02/15.
  */
-public class DivTest {
+public class BnzTest {
+
 
     private Machine m;
     private Translator t;
 
-    private String fileName = "divTest.sml";
+    private String fileName = "bnzTest.sml";
     private PrintWriter writer;
 
     @Before
@@ -33,46 +34,46 @@ public class DivTest {
     }
 
     @Test
-    public void testSimpleDiv() throws Exception {
+    public void testBnzNotExecuted() throws Exception {
 
-        writer.println("b1 lin 1 4");
-        writer.println("b2 lin 2 2");
-        writer.println("b3 div 3 1 2");
+        writer.println("b1 lin 1 0");
+        writer.println("b2 bnz 1 b1");
         writer.close();
 
 
         t = new Translator(fileName);
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
-        assertEquals(m.getRegisters().getRegister(1),4);
-        assertEquals(m.getRegisters().getRegister(2),2);
-        assertEquals(m.getRegisters().getRegister(3),2);
     }
 
     @Test
-    public void testSameRegisterDiv() throws Exception {
+    public void testBnzExecuted() throws Exception {
 
-        writer.println("b1 lin 1 10");
-        writer.println("b3 div 1 1 1");
+        writer.println("b1 lin 1 30");
+        writer.println("b2 sub 1 1 1");
+        writer.println("b3 bnz 1 b2");
         writer.close();
 
 
         t = new Translator(fileName);
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
-        assertEquals(m.getRegisters().getRegister(1),1);
+        assertEquals(m.getRegisters().getRegister(1),0);
     }
 
-    @Test (expected = ArithmeticException.class)
-    public void testDivideByZero() {
-        writer.println("b1 lin 1 4");
-        writer.println("b2 lin 2 0"); // Register 32 out of bounds
-        writer.println("b3 div 3 1 2");
+    @Test (expected=ArrayIndexOutOfBoundsException.class)
+    public void testBnzToUnknownLabel() throws Exception {
+
+        writer.println("b1 lin 1 30");
+        writer.println("b2 bnz 1 b6");
         writer.close();
 
 
         t = new Translator(fileName);
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
+        assertEquals(m.getRegisters().getRegister(1),0);
     }
+
+
 }

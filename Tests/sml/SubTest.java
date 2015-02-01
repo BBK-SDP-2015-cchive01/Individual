@@ -7,14 +7,17 @@ import org.junit.Test;
 import java.io.File;
 import java.io.PrintWriter;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class AddTest {
+/**
+ * Created by chrischivers on 31/01/15.
+ */
+public class SubTest {
 
     private Machine m;
     private Translator t;
 
-    private String fileName = "addTest.sml";
+    private String fileName = "subTest.sml";
     private PrintWriter writer;
 
     @Before
@@ -30,11 +33,11 @@ public class AddTest {
     }
 
     @Test
-    public void testSimpleAdd() throws Exception {
+    public void testSimpleSub() throws Exception {
 
         writer.println("b1 lin 1 30");
         writer.println("b2 lin 2 15");
-        writer.println("b3 add 3 1 2");
+        writer.println("b3 sub 3 1 2");
         writer.close();
 
 
@@ -43,35 +46,21 @@ public class AddTest {
         m.execute();
         assertEquals(m.getRegisters().getRegister(1),30);
         assertEquals(m.getRegisters().getRegister(2),15);
-        assertEquals(m.getRegisters().getRegister(3),45);
+        assertEquals(m.getRegisters().getRegister(3),15);
     }
 
     @Test
-    public void testSameRegisterAdd() throws Exception {
+    public void testSameRegisterSub() throws Exception {
 
         writer.println("b1 lin 1 30");
-        writer.println("b3 add 1 1 1");
+        writer.println("b3 sub 1 1 1");
         writer.close();
 
 
         t = new Translator(fileName);
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
-        assertEquals(m.getRegisters().getRegister(1),60);
+        assertEquals(m.getRegisters().getRegister(1),0);
     }
-
-    @Test (expected=ArrayIndexOutOfBoundsException.class)
-    public void testAddRegisterNotExisting() {
-        writer.println("b1 lin 33 30");
-        writer.println("b2 lin 32 15"); // Register 32 out of bounds
-        writer.println("b3 add 1 32 33");
-        writer.close();
-
-
-        t = new Translator(fileName);
-        t.readAndTranslate(m.getLabels(), m.getProg());
-        m.execute();
-    }
-
 
 }
