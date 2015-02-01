@@ -61,7 +61,7 @@ public class AddTest {
     }
 
     @Test (expected=ArrayIndexOutOfBoundsException.class)
-    public void testAddRegisterNotExisting() {
+    public void testAddRegisterNotExisting() throws  Exception{
         writer.println("b1 lin 33 30");
         writer.println("b2 lin 32 15"); // Register 32 out of bounds
         writer.println("b3 add 1 32 33");

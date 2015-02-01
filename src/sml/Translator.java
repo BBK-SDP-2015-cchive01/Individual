@@ -79,7 +79,7 @@ public class Translator {
 
 		String ins = scan();
 		// Capitalises first letter of instruction to adhere to Java class naming conventions
-		ins = Character.toUpperCase(ins.charAt(0)) + ins.substring(1);
+		ins = Character.toUpperCase(ins.charAt(0)) + ins.substring(1).toLowerCase();
 
 		String nextReg;
 		List<String> registerListStr = new ArrayList<>(); // Scan all register lists as Strings
@@ -117,10 +117,9 @@ public class Translator {
 
 			}
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.err.println("Error: Method '" + ins + "' does not exist. Program continuing...");
 		} catch (NoSuchMethodException e) {
-			System.err.println("Error: Method with that signature does not exist");
-			e.printStackTrace();
+			System.err.println("Error: Method with that signature does not exist. Program continuing...");
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
