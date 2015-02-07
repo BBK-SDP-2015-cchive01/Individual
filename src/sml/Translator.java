@@ -81,25 +81,28 @@ public class Translator {
 		// Capitalises first letter of instruction to adhere to Java class naming conventions
 		ins = Character.toUpperCase(ins.charAt(0)) + ins.substring(1).toLowerCase();
 
-		String nextReg;
-		List<String> registerListStr = new ArrayList<>(); // Scan all register lists as Strings
-		while (!(nextReg = scan()).equals("")) {
-			registerListStr.add(nextReg);
+		String nextOperand;
+		List<String> operandListStr = new ArrayList<>();
+
+		// Scan all operands in instruction and add to operandListStr as Strings
+		while (!(nextOperand = scan()).equals("")) {
+			operandListStr.add(nextOperand);
 		}
 
-		Object inputParams[] = new Object[registerListStr.size() + 1];
-		Class inputParamTypes []= new Class[registerListStr.size() + 1];
+		Object inputParams[] = new Object[operandListStr.size() + 1];
+		Class inputParamTypes []= new Class[operandListStr.size() + 1];
 
+		// First parameter is always label
 		inputParams[0] = label;
 		inputParamTypes[0] = String.class;
 
-		// Iterate through register list and try parsing as integers, if NumberFormatException thrown assume String
-		for (int i = 0; i < registerListStr.size(); i++) {
+		// Iterate through Operand List and try parsing each as an integer, if NumberFormatException thrown assume it is a String
+		for (int i = 0; i < operandListStr.size(); i++) {
 			try {
-				inputParams[i + 1] = Integer.parseInt(registerListStr.get(i));
+				inputParams[i + 1] = Integer.parseInt(operandListStr.get(i));
 				inputParamTypes[i + 1] = Integer.TYPE;
 			} catch (NumberFormatException e) {
-				inputParams[i + 1] = registerListStr.get(i);
+				inputParams[i + 1] = operandListStr.get(i);
 				inputParamTypes[i + 1] = String.class;
 			}
 		}

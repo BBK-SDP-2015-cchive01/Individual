@@ -33,6 +33,7 @@ public class Labels {
 				return i;
 			}
 		}
+		System.err.println("Error: Label not found, returning -1");
 		return -1;
 	}
 
