@@ -23,7 +23,11 @@ public class BnzInstruction extends Instruction {
         int value1 = m.getRegisters().getRegister(op1);
         if (value1 != 0) {
             int labelIndex = m.getLabels().indexOf(op2);
-            m.setPc(labelIndex);
+            if (labelIndex != -1) {
+                m.setPc(labelIndex);
+            } else {
+                System.out.println("Unknown label in bnz instruction. Continuing to run.");
+            }
         }
 
     }

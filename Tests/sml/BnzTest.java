@@ -61,18 +61,21 @@ public class BnzTest {
         assertEquals(m.getRegisters().getRegister(1),0);
     }
 
-    @Test (expected=ArrayIndexOutOfBoundsException.class)
+    // program should continue if bnz instruction refers to unknown label
+    @Test
     public void testBnzToUnknownLabel() throws Exception {
 
         writer.println("b1 lin 1 30");
         writer.println("b2 bnz 1 b6");
+        writer.println("b2 lin 2 30");
         writer.close();
 
 
         t = new Translator(fileName);
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
-        assertEquals(m.getRegisters().getRegister(1),0);
+        assertEquals(m.getRegisters().getRegister(2), 30);
+
     }
 
 

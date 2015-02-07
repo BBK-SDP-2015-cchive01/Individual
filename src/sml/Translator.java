@@ -120,12 +120,8 @@ public class Translator {
 			System.err.println("Error: Method '" + ins + "' does not exist. Program continuing...");
 		} catch (NoSuchMethodException e) {
 			System.err.println("Error: Method with that signature does not exist. Program continuing...");
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+		} catch (InvocationTargetException | InstantiationException | IllegalAccessException e) {
+			System.err.println("Reflection error. Program continuing...");
 		}
 
 		return null;
