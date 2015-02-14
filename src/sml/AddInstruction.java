@@ -30,6 +30,7 @@ public class AddInstruction extends Instruction {
 		m.getRegisters().setRegister(result, value1 + value2);
 	}
 
+
 	@Override
 	public String toString() {
 		return super.toString() + " " + op1 + " + " + op2 + " to " + result;

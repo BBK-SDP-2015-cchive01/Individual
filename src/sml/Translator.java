@@ -72,6 +72,7 @@ public class Translator {
 	// line should consist of an MML instruction, with its label already
 	// removed. Translate line into an instruction with label label
 	// and return the instruction
+
 	public Instruction getInstruction(String label) {
 
 		if (line.equals(""))
@@ -96,7 +97,7 @@ public class Translator {
 		inputParams[0] = label;
 		inputParamTypes[0] = String.class;
 
-		// Iterate through Operand List and try parsing each as an integer, if NumberFormatException thrown assume it is a String
+		// Iterate through Operand List and try parsing each as an integer, if NumberFormatException thrown, handle it as a String parameter
 		for (int i = 0; i < operandListStr.size(); i++) {
 			try {
 				inputParams[i + 1] = Integer.parseInt(operandListStr.get(i));
